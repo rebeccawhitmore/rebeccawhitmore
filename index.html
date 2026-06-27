@@ -2,23 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Test</title>
-  <style>
-    body { margin: 0; background: #faf8f5; }
-    canvas { position: fixed; top: 0; left: 0; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rebecca Whitmore — Coming Soon" />
+  <title>Rebecca Whitmore</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="coming-soon">
+
   <canvas id="stars"></canvas>
+
+  <div class="cs-wrapper">
+    <h1 class="cs-name">Rebecca Whitmore</h1>
+    <p class="cs-role">Fractional BDM</p>
+    <p class="cs-coming">Coming soon</p>
+  </div>
+
   <script>
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    ctx.beginPath();
-    ctx.arc(100, 100, 3, 0, Math.PI * 2);
-    ctx.fillStyle = 'red';
-    ctx.fill();
+    const stars = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function createStars(count) {
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.2 + 0.3,
+          alpha: Math.random(),
+          delta: (Math.random() * 0.003) + 0.001
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        s.alpha += s.delta;
+        if (s.alpha >= 1 || s.alpha <= 0) s.delta *= -1;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(80, 70, 60, ${s.alpha})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+
+    resize();
+    createStars(120);
+    draw();
+    window.addEventListener('resize', () => {
+      resize();
+      stars.length = 0;
+      createStars(120);
+    });
   </script>
+
 </body>
 </html>
