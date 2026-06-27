@@ -9,9 +9,9 @@ body.coming-soon {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #faf8f5;
+  background-color: #2c2c35;
   font-family: Georgia, 'Times New Roman', serif;
-  color: #2c2c2c;
+  color: #f0ede8;
 }
 
 canvas {
@@ -40,7 +40,7 @@ canvas {
   font-size: 1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #999;
+  color: #a89f96;
   margin-bottom: 2.5rem;
 }
 
@@ -48,7 +48,7 @@ canvas {
   font-size: 0.8rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #bbb;
+  color: #7a7570;
 }
 
 @media (max-width: 480px) {

@@ -34,7 +34,7 @@
           y: Math.random() * canvas.height,
           radius: Math.random() * 1.2 + 0.3,
           alpha: Math.random(),
-          delta: (Math.random() * 0.008) + 0.004
+          delta: (Math.random() * 0.025) + 0.01
         });
       }
     }
@@ -46,7 +46,7 @@
         if (s.alpha >= 1 || s.alpha <= 0) s.delta *= -1;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(80, 70, 60, ${s.alpha})`;
+        ctx.fillStyle = `rgba(255, 255, 255, ${s.alpha})`;
         ctx.fill();
       });
       requestAnimationFrame(draw);
