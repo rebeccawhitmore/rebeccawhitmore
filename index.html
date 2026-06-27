@@ -9,14 +9,58 @@
 </head>
 <body class="coming-soon">
 
+  <canvas id="stars"></canvas>
+
   <div class="cs-wrapper">
-    <p class="cs-name">Rebecca Whitmore</p>
-        </div>
+    <h1 class="cs-name">Rebecca Whitmore</h1>
+    <p class="cs-role">Fractional BDM</p>
+    <p class="cs-coming">Coming soon</p>
   </div>
 
-  <footer class="cs-footer">
-    <p>&copy; 2025 Rebecca Whitmore</p>
-  </footer>
+  <script>
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    const stars = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function createStars(count) {
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.2 + 0.3,
+          alpha: Math.random(),
+          delta: (Math.random() * 0.003) + 0.001
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        s.alpha += s.delta;
+        if (s.alpha >= 1 || s.alpha <= 0) s.delta *= -1;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(180, 170, 160, ${s.alpha})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+
+    resize();
+    createStars(120);
+    draw();
+    window.addEventListener('resize', () => {
+      resize();
+      stars.length = 0;
+      createStars(120);
+    });
+  </script>
 
 </body>
 </html>
