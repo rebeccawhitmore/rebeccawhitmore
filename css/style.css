@@ -164,3 +164,90 @@ nav a:hover {
     gap: 1.25rem;
   }
 }
+
+
+/* =====================
+   Coming Soon
+===================== */
+body.coming-soon {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f7f4;
+  text-align: center;
+}
+
+.cs-wrapper {
+  padding: 2rem 1.5rem;
+  max-width: 520px;
+}
+
+.cs-name {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 2rem;
+}
+
+.cs-headline {
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+  color: #2c2c2c;
+}
+
+.cs-sub {
+  color: #777;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cs-form {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cs-form input {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  background: #fff;
+  color: #2c2c2c;
+  width: 260px;
+  outline: none;
+  font-family: inherit;
+}
+
+.cs-form input:focus {
+  border-color: #aaa;
+}
+
+.cs-form button {
+  padding: 0.75rem 1.75rem;
+  background-color: #2c2c2c;
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cs-form button:hover {
+  background-color: #444;
+}
+
+.cs-footer {
+  position: fixed;
+  bottom: 1.5rem;
+  font-size: 0.8rem;
+  color: #bbb;
+}
